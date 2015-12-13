@@ -1,15 +1,28 @@
 <resources>
     <string name="app_name">TrouvTonResto</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Ouvrir le menu</string>
+    <string name="navigation_drawer_close">Fermer le menu</string>
 
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_map">Map</string>
 
-    <string name="title_activity_resto">RestoActivity</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="go">Y aller !</string>
+    <string name="person_name">Jean Dupont</string>
+    <string name="person_email">jean.dupont@insa-lyon.fr</string>
 
-    <string name="go">Go !</string>
+    <string name="titleRestos">Restaurants</string>
+    <string name="titleCarte">Carte</string>
+    <string name="titlePref">Préférence</string>
+    <string name="titleRouteFragment">Itinéraire</string>
+    <string name="titleRestoPager">Restaurant</string>
+    <string name="search_title">Chercher</string>
+
+    <string-array name="restosName">
+        <item>Beurk</item>
+        <item>RU</item>
+        <item>Grillon</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
