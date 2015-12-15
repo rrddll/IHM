@@ -4,7 +4,7 @@
     <string name="navigation_drawer_open">Ouvrir le menu</string>
     <string name="navigation_drawer_close">Fermer le menu</string>
 
-
+    <string name="detail">Details</string>
     <string name="go">Y aller !</string>
     <string name="person_name">Jean Dupont</string>
     <string name="person_email">jean.dupont@insa-lyon.fr</string>
@@ -20,6 +20,17 @@
         <item>Beurk</item>
         <item>RU</item>
         <item>Grillon</item>
+        <item>Olivier</item>
+        <item>Prevert</item>
+        <item>Castor</item>
+    </string-array>
+    <string-array name="restosSpecialite">
+        <item>Spec Beurk</item>
+        <item>Spec RU</item>
+        <item>Spec Grillon</item>
+        <item>Spec Olivier</item>
+        <item>Spec Prevert</item>
+        <item>Spec Castor</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
