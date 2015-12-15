@@ -1,10 +1,60 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#e0e0e0">
 
     <ListView
-        android:id="@+id/listView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/layoutBasListe"
+        android:layout_alignParentTop="true"
+        android:dividerHeight="12dp"
+        android:background="#e0e0e0"
+        android:divider="#e0e0e0" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/layoutBasListe"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/background_light"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/horaire"
+            android:id="@+id/textView7" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SeekBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBar"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textView6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="12:30"
+                android:id="@+id/textView6"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>

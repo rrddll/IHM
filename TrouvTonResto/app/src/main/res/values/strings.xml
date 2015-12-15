@@ -8,6 +8,7 @@
     <string name="go">Y aller !</string>
     <string name="person_name">Jean Dupont</string>
     <string name="person_email">jean.dupont@insa-lyon.fr</string>
+    <string name="horaire">Decaler les prévisions</string>
 
     <string name="titleRestos">Restaurants</string>
     <string name="titleCarte">Carte</string>
@@ -17,10 +18,40 @@
     <string name="search_title">Chercher</string>
 
     <string-array name="restosName">
-        <item>Beurk</item>
-        <item>RU</item>
-        <item>Grillon</item>
+        <item>Castor et Pollux</item>
+        <item>L\'Olivier</item>
+        <item>Le Grillon</item>
+        <item>Le Prévert</item>
+        <item>Restaurant universitaire la Doua</item>
+        <item>Le castor gourmand</item>
     </string-array>
+
+    <string-array name="restosSpecialite">
+        <item>Cuisine gastronomique française</item>
+        <item>Cucina gourmet italiana</item>
+        <item>Grillades grasses accompagnées de patates</item>
+        <item>芋のバーガー</item>
+        <item>Le resto pas cher !</item>
+        <item>Des sandwichs hors de prix !!</item>
+    </string-array>
+    
+    <integer-array name="restosDistances">
+        <item>1024</item>
+        <item>820</item>
+        <item>820</item>
+        <item>1023</item>
+        <item>1324</item>
+        <item>820</item>
+    </integer-array>
+    
+    <integer-array name="restosTpsAttente">
+        <item>20</item>
+        <item>12</item>
+        <item>15</item>
+        <item>7</item>
+        <item>8</item>
+        <item>18</item>
+    </integer-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

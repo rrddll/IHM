@@ -9,12 +9,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class RestosFragment extends Fragment implements ListView.OnItemClickListener {
 
     ListView mListView;
 
-    String[] restos;
+    List<Restaurant> restos;
 
     public RestosFragment() {
     }
@@ -26,14 +29,26 @@ public class RestosFragment extends Fragment implements ListView.OnItemClickList
         View view = inflater.inflate(R.layout.fragment_restos, container, false);
         mListView = (ListView) view.findViewById(R.id.listView);
 
-        restos = getResources().getStringArray(R.array.restosName);
+        restos = allRestos();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, restos);
+        ArrayAdapter<Restaurant> adapter = new RestaurantListeAdapter(getActivity(), restos);
 
         mListView.setOnItemClickListener(this);
         mListView.setAdapter(adapter);
 
         return view;
+    }
+
+    private List<Restaurant> allRestos() {
+        String[] noms = getResources().getStringArray(R.array.restosName);
+        String[] specialites = getResources().getStringArray(R.array.restosSpecialite);
+        int[] distances = getResources().getIntArray(R.array.restosDistances);
+        int[] tempsAttente = getResources().getIntArray(R.array.restosTpsAttente);
+
+        List<Restaurant> retour = new ArrayList<>(noms.length);
+        for (int i = 0 ; i < noms.length ; i++)
+            retour.add(new Restaurant(noms[i], specialites[i], tempsAttente[i], distances[i]));
+        return retour;
     }
 
     @Override
