@@ -108,7 +108,7 @@ public class  MainActivity extends AppCompatActivity
                 showSearch = true;
                 break;
             case R.id.nav_map:
-                fragment = new MapFragment();
+                fragment = new CarteFragment();
                 title  = getString(R.string.titleCarte);
                 break;
             case R.id.nav_preferences:
