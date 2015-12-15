@@ -64,6 +64,11 @@ public class RestoFragmentPager extends Fragment {
             ft.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
         else
             ft.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("indexResto", (int) nextResto);
+        fragment.setArguments(bundle);
+
         ft.replace(R.id.resto_frame, fragment);
         ft.commit();
 

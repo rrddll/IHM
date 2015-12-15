@@ -6,4 +6,5 @@
     <color name="valeurOk">#4E9A06</color>
     <color name="valeurMoyenne">#F57900</color>
     <color name="valeurMauvaise">#A40000</color>
+    <color name="white">#FFFFFF</color>
 </resources>
