@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +40,32 @@ public class RestoFragment extends Fragment {
         if (bundle != null)
             mCurrentResto = bundle.getInt("indexResto");
 
-      /*  Button goButton = (Button) result.findViewById(R.id.goButton);
+        int drawable = 0;
+        switch (mCurrentResto)
+        {
+            case 0 :
+                drawable = R.drawable.ic_l1l2beurk;
+                break;
+            case 1 :
+                drawable = R.drawable.ic_olivier;
+                break;
+            case 2 :
+                drawable = R.drawable.ic_grillon;
+                break;
+            case 3 :
+                drawable = R.drawable.ic_prevert;
+                break;
+            case 4 :
+                drawable = R.drawable.ic_ru;
+                break;
+            default :
+                break;
+        }
+
+
+        ((ImageView)result.findViewById(R.id.idGraphe)).setImageResource(drawable);
+
+        Button goButton = (Button) result.findViewById(R.id.goButton);
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +73,7 @@ public class RestoFragment extends Fragment {
                 bundle.putInt("to", (int) mCurrentResto);
                 ((MainActivity) (getActivity())).displayView(R.id.route_fragment, bundle);
             }
-        });*/
+        });
 
         entreesName = getResources().getStringArray(R.array.restosEntrees);
         platsName = getResources().getStringArray(R.array.restosPlats);
@@ -78,7 +104,6 @@ public class RestoFragment extends Fragment {
         List<String> entrees = new ArrayList<String>();
         for (int i = 0 ; i < 3 ; i++)
             entrees.add(entreesName[((mCurrentResto + 1) * i + 3) % entreesName.length]);
-
 
         List<String> plats = new ArrayList<String>();
         for (int i = 0 ; i < 3 ; i++)
