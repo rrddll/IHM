@@ -8,6 +8,7 @@
     <string name="go">Y aller !</string>
     <string name="person_name">Jean Dupont</string>
     <string name="person_email">jean.dupont@insa-lyon.fr</string>
+    <string name="horaire">Decaler les prévisions</string>
 
     <string name="titleRestos">Restaurants</string>
     <string name="titleCarte">Carte</string>
@@ -17,23 +18,82 @@
     <string name="search_title">Chercher</string>
 
     <string-array name="restosName">
-        <item>Beurk</item>
-        <item>RU</item>
-        <item>Grillon</item>
-        <item>Olivier</item>
-        <item>Prevert</item>
-        <item>Castor</item>
+
+        <item>Castor et Pollux</item>
+        <item>L\'Olivier</item>
+        <item>Le Grillon</item>
+        <item>Le Prévert</item>
+        <item>Restaurant universitaire la Doua</item>
+        <item>Le castor gourmand</item>
     </string-array>
+
+    <string-array name="restosEntrees">
+        <item>Saucisson Brioché</item>
+        <item>Haricot vert - Thon</item>
+        <item>Salade</item>
+        <item>Oeuf mimosa</item>
+        <item>Boudin au pomme</item>
+        <item>Quiche à la volaille</item>
+        <item>Mini pizza</item>
+    </string-array>
+
+
+
+    <string-array name="restosPlats">
+        <item>Pizza</item>
+        <item>Couscous</item>
+        <item>Sanswichs au saumon</item>
+        <item>brochette frites</item>
+        <item>Steack frites</item>
+        <item>Poisson et légumes</item>
+        <item>Courgette - côtelette</item>
+    </string-array>
+
+
+
+    <string-array name="restosDesserts">
+        <item>Yahourt</item>
+        <item>Mousse au chocolat</item>
+        <item>Eclaire au chocolat</item>
+        <item>Beignet</item>
+        <item>Tarte aux pommes</item>
+        <item>Tarte au citron</item>
+        <item>Tarte aux fraises</item>
+    </string-array>
+
     <string-array name="restosSpecialite">
-        <item>Spec Beurk</item>
-        <item>Spec RU</item>
-        <item>Spec Grillon</item>
-        <item>Spec Olivier</item>
-        <item>Spec Prevert</item>
-        <item>Spec Castor</item>
+        <item>Cuisine gastronomique française</item>
+        <item>Cucina gourmet italiana</item>
+        <item>Grillades grasses accompagnées de patates</item>
+        <item>芋のバーガー</item>
+        <item>Le resto pas cher !</item>
+        <item>Des sandwichs hors de prix !!</item>
     </string-array>
+    
+    <integer-array name="restosDistances">
+        <item>1024</item>
+        <item>820</item>
+        <item>820</item>
+        <item>1023</item>
+        <item>1324</item>
+        <item>820</item>
+    </integer-array>
+    
+    <integer-array name="restosTpsAttente">
+        <item>20</item>
+        <item>12</item>
+        <item>15</item>
+        <item>7</item>
+        <item>8</item>
+        <item>18</item>
+    </integer-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu">Menu</string>
+    <string name="entree">Entrée</string>
+    <string name="plat">Plat</string>
+    <string name="dessert">Dessert</string>
+    <string name="tpsAttente">Temps d\'attente</string>
 
 </resources>

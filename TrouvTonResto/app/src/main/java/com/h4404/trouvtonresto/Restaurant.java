@@ -1,5 +1,8 @@
 package com.h4404.trouvtonresto;
 
+import android.content.Context;
+import android.content.res.TypedArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,7 @@ public class Restaurant {
     private String specialite;
     private int tempsAttente;
     private int distance;
+    private static Context context;
 
     public Restaurant (String a_nom, String a_specialite, int a_tempsAttente, int a_distance) {
         nom = a_nom;
@@ -42,15 +46,5 @@ public class Restaurant {
 
     public int getDistance() {
         return distance;
-    }
-
-    public static List<Restaurant> allRestaurants() {
-        ArrayList<Restaurant> liste = new ArrayList<>();
-        liste.add(new Restaurant("Castor et Polux", "Cuisine gastronomique française", 30, 1024));
-        liste.add(new Restaurant("L'olivier", "Cucina gourmet italiana", 12, 820));
-        liste.add(new Restaurant("Le grillon", "Grillades grasses accompagnées de patates", 15, 820));
-        liste.add(new Restaurant("Le prévert", "芋のバーガー", 7, 1023));
-
-        return liste;
     }
 }
