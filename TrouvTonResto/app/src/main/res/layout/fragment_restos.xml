@@ -11,9 +11,9 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/layoutBasListe"
         android:layout_alignParentTop="true"
-        android:dividerHeight="12dp"
         android:background="#e0e0e0"
-        android:divider="#e0e0e0" />
+        android:dividerHeight="1dp"
+        android:divider="@color/material_grey_300" />
 
     <LinearLayout
         android:orientation="vertical"
