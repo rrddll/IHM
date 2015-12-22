@@ -1,5 +1,7 @@
 package com.h4404.trouvtonresto;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -69,9 +71,9 @@ public class RestoFragment extends Fragment {
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("to", (int) mCurrentResto);
-                ((MainActivity) (getActivity())).displayView(R.id.route_fragment, bundle);
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("http://maps.google.com/maps?mode=walking&daddr=" + CarteFragment.mRestosLat[mCurrentResto] + "," + CarteFragment.mRestosLon[mCurrentResto]));
+                startActivity(intent);
             }
         });
 

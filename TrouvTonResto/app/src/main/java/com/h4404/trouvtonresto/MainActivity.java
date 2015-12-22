@@ -60,6 +60,7 @@ public class  MainActivity extends AppCompatActivity
             ft.show(fragment);
             ft.commit();
             getFragmentManager().executePendingTransactions();
+            getFragmentManager().popBackStack();
 
             // set the toolbar title
             if (getSupportActionBar() != null) {
