@@ -51,7 +51,7 @@ public class RestoFragmentPager extends Fragment {
                 setCurrentResto((mCurrentResto == 0) ? restosName.length - 1 : mCurrentResto - 1, true);
             }
         });
-        return(result);
+        return result;
     }
 
     //Modifie le resto a afficher
