@@ -43,21 +43,32 @@ public class RestoFragmentPager extends Fragment {
         result.setOnTouchListener(new OnSwipeTouchListener(getActivity()) {
             @Override
             public void onSwipeLeft() {
-                setCurrentResto((mCurrentResto == restosName.length - 1) ? 0 : mCurrentResto + 1, false);
+                showRight();
             }
 
             @Override
             public void onSwipeRight() {
-                setCurrentResto((mCurrentResto == 0) ? restosName.length - 1 : mCurrentResto - 1, true);
+                showLeft();
             }
         });
         return result;
     }
 
+    //Affiche le resto à gauche
+    public void showLeft(){
+        setCurrentResto((mCurrentResto == 0) ? restosName.length - 1 : mCurrentResto - 1, true);
+    }
+
+    //Affiche le resto à droite
+    public void showRight(){
+        setCurrentResto((mCurrentResto == restosName.length - 1) ? 0 : mCurrentResto + 1, false);
+    }
+
     //Modifie le resto a afficher
     private void setCurrentResto(Integer nextResto, boolean leftToRight){
 
-        Fragment fragment = new RestoFragment();
+        RestoFragment fragment = new RestoFragment();
+        fragment.setPager(this);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         if (leftToRight)
