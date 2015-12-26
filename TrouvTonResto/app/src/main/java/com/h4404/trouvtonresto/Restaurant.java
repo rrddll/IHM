@@ -5,11 +5,13 @@ import android.content.res.TypedArray;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by luc on 15/12/15.
  */
 public class Restaurant {
+    private  static Random r = new Random();
     private static int lastId = 0;
     private int id;
     private String nom;
@@ -46,5 +48,10 @@ public class Restaurant {
 
     public int getDistance() {
         return distance;
+    }
+
+    public void shuffleWaitingTime()
+    {
+        tempsAttente = r.nextInt(17) + 3;
     }
 }

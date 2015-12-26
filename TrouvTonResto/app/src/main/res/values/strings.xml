@@ -87,6 +87,11 @@
         <item>8</item>
         <item>18</item>
     </integer-array>
+    
+    <integer name="heureDebut">12</integer>
+    <integer name="heureFin">14</integer>
+    <integer name="minuteDebut">30</integer>
+    <integer name="minuteFin">00</integer>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

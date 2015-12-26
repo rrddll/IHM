@@ -43,14 +43,14 @@
                 android:id="@+id/seekBar"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/textView6" />
+                android:layout_toLeftOf="@+id/horairePrevision" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="12:30"
-                android:id="@+id/textView6"
+                android:id="@+id/horairePrevision"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true" />
 
