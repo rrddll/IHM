@@ -11,8 +11,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:paddingBottom="5pt"
+        android:paddingTop="5pt"
         android:textSize="17dp"
         android:textColor="#2d2d2d"
-        android:background="#c8c8c8" />
+        android:background="#D7D7D7" />
 
 </LinearLayout>

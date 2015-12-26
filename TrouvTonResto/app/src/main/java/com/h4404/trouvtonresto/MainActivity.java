@@ -12,15 +12,17 @@ import android.support.v7.widget.Toolbar;
 import android.util.Pair;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.view.View;
 
 import java.util.Stack;
 
 public class  MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private int mBackView;
     private Menu mMenuActionBar;
     private Stack<Pair<String, Boolean> > mFragmentStack = new Stack<Pair<String, Boolean> >();
+    private ActionBarDrawerToggle mToggle;
+    private DrawerLayout mDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,24 +32,31 @@ public class  MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mToggle = new ActionBarDrawerToggle(
+                this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawer.setDrawerListener(mToggle);
+
+        mToggle.setHomeAsUpIndicator(R.drawable.ic_back_arrow);
+
+        mToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         displayView(R.id.nav_restaurants, null);
+
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {//If the drawer is open, we close it
-            drawer.closeDrawer(GravityCompat.START);
-        }
+        if (mDrawer.isDrawerOpen(GravityCompat.START))//If the drawer is open, we close it
+            mDrawer.closeDrawer(GravityCompat.START);
         else if (mFragmentStack.size() > 1)//If it is not the first one fragment, we go back
         {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -60,36 +69,34 @@ public class  MainActivity extends AppCompatActivity
             ft.show(fragment);
             ft.commit();
             getFragmentManager().executePendingTransactions();
+            getFragmentManager().popBackStack();
 
-            // set the toolbar title
-            if (getSupportActionBar() != null) {
-                if (mMenuActionBar != null)//Show the search button
-                    mMenuActionBar.findItem(R.id.search).setVisible(mFragmentStack.peek().second);
-                setTitle(mFragmentStack.peek().first);
-            }
+            updateToolbarTitleAndArrow(mFragmentStack.peek().first, mFragmentStack.peek().second);
         }
         else//Else we remove the last fragment and exit the app.
-        {
-            mFragmentStack.clear();//Clean the stack and show the new first fragment of the stack
-            for (int i = 0 ; i < getFragmentManager().getBackStackEntryCount() ; ++i)
-                getFragmentManager().popBackStack();
             super.onBackPressed();
-        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         mMenuActionBar = menu;
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        mFragmentStack.clear();//Clean the stack and show the new first fragment of the stack
-        for (int i = 0 ; i < getFragmentManager().getBackStackEntryCount() ; ++i)
-            getFragmentManager().popBackStack();
+    public boolean onOptionsItemSelected(MenuItem item) {
 
+        if (mToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
         displayView(item.getItemId(), null);
         return true;
     }
@@ -99,7 +106,7 @@ public class  MainActivity extends AppCompatActivity
 
         Fragment fragment = null;
         String title = getString(R.string.app_name);
-        Boolean showSearch = false, animate = false;
+        Boolean showSearch = false, isTopFragment = true;
 
         switch (viewId) {
             case R.id.nav_restaurants:
@@ -118,12 +125,7 @@ public class  MainActivity extends AppCompatActivity
             case R.id.restos_pager:
                 fragment = new RestoFragmentPager();
                 title  = getString(R.string.titleRestoPager);
-                animate = true;
-                break;
-            case R.id.route_fragment:
-                fragment = new RouteFragment();
-                title  = getString(R.string.titleRouteFragment);
-                animate = true;
+                isTopFragment = false;
                 break;
         }
 
@@ -131,18 +133,42 @@ public class  MainActivity extends AppCompatActivity
             fragment.setArguments(bundle);
 
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            if (animate)
+            if (!isTopFragment) {
                 ft.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
-            else
+                ft.addToBackStack(title);
+
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                ft.hide(getFragmentManager().findFragmentByTag(mFragmentStack.peek().first));
+            }
+            else {
+                if (mFragmentStack.size() > 0)
+                    ft.hide(getFragmentManager().findFragmentByTag(mFragmentStack.peek().first));
+
+                mFragmentStack.clear();
+                for (int i = 0 ; i < getFragmentManager().getBackStackEntryCount() ; ++i)
+                    getFragmentManager().popBackStack();
+
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 
-            if(mFragmentStack.size() > 0)//If it is not the first one fragment.
-                ft.hide(getFragmentManager().findFragmentByTag(mFragmentStack.peek().first));
+                getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                mToggle.syncState();
+            }
             ft.add(R.id.content_frame, fragment, title);
-            ft.addToBackStack(title);
             mFragmentStack.add(Pair.create(title, showSearch));
             ft.commit();
+
+            updateToolbarTitleAndArrow(title, showSearch);
         }
+
+        mDrawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void updateToolbarTitleAndArrow(String title, boolean showSearch)
+    {
+        if (mFragmentStack.size() > 1)
+            mToggle.setDrawerIndicatorEnabled(false);
+        else
+            mToggle.setDrawerIndicatorEnabled(true);
 
         // set the toolbar title
         if (getSupportActionBar() != null) {
@@ -150,10 +176,6 @@ public class  MainActivity extends AppCompatActivity
                 mMenuActionBar.findItem(R.id.search).setVisible(showSearch);
             setTitle(title);
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-
     }
 
 
