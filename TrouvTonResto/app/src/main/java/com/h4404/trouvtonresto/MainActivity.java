@@ -58,18 +58,18 @@ public class  MainActivity extends AppCompatActivity
         if (mDrawer.isDrawerOpen(GravityCompat.START))//If the drawer is open, we close it
             mDrawer.closeDrawer(GravityCompat.START);
         else if (mFragmentStack.size() > 1)//If it is not the first one fragment, we go back
-        {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            Fragment oldFragment = getFragmentManager().findFragmentByTag(mFragmentStack.peek().first);
-            mFragmentStack.pop();
-            Fragment fragment = getFragmentManager().findFragmentByTag(mFragmentStack.peek().first);
+            {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment oldFragment = getFragmentManager().findFragmentByTag(mFragmentStack.peek().first);
+                mFragmentStack.pop();
+                Fragment fragment = getFragmentManager().findFragmentByTag(mFragmentStack.peek().first);
 
-            ft.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
-            ft.remove(oldFragment);
-            ft.show(fragment);
-            ft.commit();
-            getFragmentManager().executePendingTransactions();
-            getFragmentManager().popBackStack();
+                ft.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
+                ft.remove(oldFragment);
+                ft.show(fragment);
+                ft.commit();
+                getFragmentManager().executePendingTransactions();
+                getFragmentManager().popBackStack();
 
             updateToolbarTitleAndArrow(mFragmentStack.peek().first, mFragmentStack.peek().second);
         }

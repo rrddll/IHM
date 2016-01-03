@@ -8,7 +8,9 @@ import android.view.Menu;
 
 public class Splash extends AppCompatActivity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 4000;
+    private final int SPLASH_DISPLAY_LENGTH = 2000;
+
+    Boolean firstTime = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,13 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(Splash.this, MainActivity.class);
+                Intent mainIntent;
+                if (!firstTime)
+                {
+                    mainIntent = new Intent(Splash.this, MainActivity.class);
+                } else {
+                    mainIntent = new Intent(Splash.this, TutoPageActivity.class);
+                }
                 Splash.this.startActivity(mainIntent);
                 Splash.this.finish();
             }

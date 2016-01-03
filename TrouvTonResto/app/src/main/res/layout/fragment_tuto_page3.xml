@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- fragment_screen_slide_page.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:gravity="center_vertical"
+    android:id="@+id/lltuto">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tuto_titre3"
+        android:id="@+id/textView4"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:focusableInTouchMode="false"
+        android:textColor="#212121"
+        android:textSize="@dimen/design_fab_content_size"
+        android:padding="30px" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tuto_text3"
+        android:id="@+id/textView5"
+        android:textAlignment="center"
+        android:textSize="@dimen/activity_horizontal_margin"
+        android:textColor="#212121"
+        android:padding="30px" />
+
+</LinearLayout>

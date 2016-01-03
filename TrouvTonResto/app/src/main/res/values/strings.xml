@@ -17,6 +17,23 @@
     <string name="titleRestoPager">Restaurant</string>
     <string name="search_title">Chercher</string>
 
+    <string name="google_maps_key">AIzaSyCqQCc8ty2yqIzqB30Wq-k_srcIjLY6JeI</string>
+    <string name="tuto_titre1">Bienvenue sur l\'application TrouvTonResto !</string>
+    <string name="tuto_text1">Cette application va vous aider à choisir dans quel restaurant du campus vous pourrez manger chaque midi !</string>
+
+    <string name="tuto_titre2">Allez dans l\'onglet \"Carte\" du menu</string>
+    <string name="tuto_text2">Vous retrouverez la carte du campus avec la localisation des restaurants.</string>
+
+    <string name="tuto_titre3">Aidez nous à en savoir un peu plus sur vous !</string>
+    <string name="tuto_text3">Dites nous quels sont les restaurants qui vous intéressent (ceux auxquels vous pouvez aller en fonction de votre abonnement).</string>
+
+    <string name="tuto_titre4">Allez dans l\'onglet \"Préférences\" du menu</string>
+    <string name="tuto_text4">Vous pourrez changer vos restaurants préférés à tout moment.</string>
+
+    <string name="action_next">Suiv</string>
+    <string name="action_finish">Ignorer</string>
+    <string name="action_ok">OK</string>
+
     <string-array name="restosName">
 
         <item>Castor et Pollux</item>
@@ -38,7 +55,6 @@
     </string-array>
 
 
-
     <string-array name="restosPlats">
         <item>Pizza</item>
         <item>Couscous</item>
@@ -48,7 +64,6 @@
         <item>Poisson et légumes</item>
         <item>Courgette - côtelette</item>
     </string-array>
-
 
 
     <string-array name="restosDesserts">
@@ -69,7 +84,7 @@
         <item>Le resto pas cher !</item>
         <item>Des sandwichs hors de prix !!</item>
     </string-array>
-    
+
     <integer-array name="restosDistances">
         <item>1024</item>
         <item>820</item>
@@ -78,7 +93,7 @@
         <item>1324</item>
         <item>820</item>
     </integer-array>
-    
+
     <integer-array name="restosTpsAttente">
         <item>20</item>
         <item>12</item>
@@ -87,7 +102,7 @@
         <item>8</item>
         <item>18</item>
     </integer-array>
-    
+
     <integer name="heureDebut">12</integer>
     <integer name="heureFin">14</integer>
     <integer name="minuteDebut">30</integer>

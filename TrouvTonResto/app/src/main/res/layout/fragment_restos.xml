@@ -13,7 +13,9 @@
         android:layout_alignParentTop="true"
         android:background="#e0e0e0"
         android:dividerHeight="1dp"
-        android:divider="@color/material_grey_300" />
+        android:divider="@color/material_grey_300"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false" />
 
     <LinearLayout
         android:orientation="vertical"
