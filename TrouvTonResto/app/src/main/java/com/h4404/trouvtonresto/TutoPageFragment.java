@@ -1,8 +1,10 @@
 package com.h4404.trouvtonresto;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,7 @@ public class TutoPageFragment extends Fragment {
 
     private int mPageNumber;
 
-    View myView;
+    public static View myView;
 
     public static TutoPageFragment create(int pageNumber) {
         TutoPageFragment fragment = new TutoPageFragment();
@@ -58,17 +60,29 @@ public class TutoPageFragment extends Fragment {
         if (rootView != null && frag == R.layout.fragment_tuto_page3) {
             final LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.lltuto);
 
+            Context context = getActivity().getApplicationContext();
             String[] strRestos = getResources().getStringArray(R.array.restosName);
-            for (String s : strRestos) {
-                CheckBox cb = new CheckBox(getActivity().getApplicationContext());
-                cb.setText(s);
+            for (int i = 0 ; i < strRestos.length ; i++) {
+                CheckBox cb = new CheckBox(context);
+                cb.setText(strRestos[i]);
+                cb.setId(i);
+                cb.setOnClickListener(onCheckboxClicked(cb));
+                cb.setButtonDrawable(ContextCompat.getDrawable(context, R.xml.custom_checkbox));
                 cb.setTextColor(Color.BLACK);
-                cb.setDrawingCacheBackgroundColor(Color.BLACK);
                 ll.addView(cb);
             }
         }
 
         return rootView;
+    }
+
+    View.OnClickListener onCheckboxClicked(final CheckBox cb) {
+        return new View.OnClickListener() {
+
+            public void onClick(View v) {
+                TutoPageActivity.checkboxes[cb.getId()] = cb.isChecked();
+            }
+        };
     }
 
     public int getPageNumber() {

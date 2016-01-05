@@ -1,15 +1,20 @@
 package com.h4404.trouvtonresto;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.CheckBox;
+import java.lang.reflect.Field;
 
 
 public class TutoPageActivity extends FragmentActivity {
@@ -27,6 +32,11 @@ public class TutoPageActivity extends FragmentActivity {
      */
     private PagerAdapter mPagerAdapter;
 
+    /**
+     * Array that contains the state of the checkboxes
+     */
+    public static boolean [] checkboxes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +52,13 @@ public class TutoPageActivity extends FragmentActivity {
                 invalidateOptionsMenu();
             }
         });
+
+        // Initialize the array
+        String[] strRestos = getResources().getStringArray(R.array.restosName);
+        checkboxes = new boolean[strRestos.length];
+        for (boolean checkbox : checkboxes) {
+            checkbox = false;
+        }
     }
 
     @Override
@@ -79,9 +96,8 @@ public class TutoPageActivity extends FragmentActivity {
                 return true;
 
             case R.id.action_finish: case R.id.action_ok:
-                // Advance to the next step in the wizard. If there is no next step, setCurrentItem
-                // will do nothing.
-//                NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
+
+                // Récupère les valeurs des checkboxes
                 Intent intent = new Intent(this, MainActivity.class);
                 this.startActivity(intent);
                 return true;
