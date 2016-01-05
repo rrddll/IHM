@@ -17,7 +17,6 @@
     <string name="titleRestoPager">Restaurant</string>
     <string name="search_title">Chercher</string>
 
-    <string name="google_maps_key">AIzaSyCqQCc8ty2yqIzqB30Wq-k_srcIjLY6JeI</string>
     <string name="tuto_titre1">Bienvenue sur l\'application TrouvTonResto !</string>
     <string name="tuto_text1">Cette application va vous aider à choisir dans quel restaurant du campus vous pourrez manger chaque midi !</string>
 

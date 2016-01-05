@@ -25,7 +25,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/layoutBasListe"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/background_light"
+        android:background="@drawable/border_top_rectangle"
         android:padding="10dp">
 
         <TextView
