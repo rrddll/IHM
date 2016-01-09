@@ -127,6 +127,11 @@ public class  MainActivity extends AppCompatActivity
                 title  = getString(R.string.titleRestoPager);
                 isTopFragment = false;
                 break;
+            case R.id.resto:
+                fragment = new RestoFragment();
+                title  = getString(R.string.titleRestoPager);
+                isTopFragment = false;
+                break;
         }
 
         if (fragment != null) {

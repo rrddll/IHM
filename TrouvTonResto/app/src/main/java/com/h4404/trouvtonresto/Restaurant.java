@@ -12,7 +12,6 @@ import java.util.Random;
  */
 public class Restaurant {
     private  static Random r = new Random();
-    private static int lastId = 0;
     private int id;
     private String nom;
     private String specialite;
@@ -20,14 +19,14 @@ public class Restaurant {
     private int distance;
     private static Context context;
 
-    public Restaurant (String a_nom, String a_specialite, int a_tempsAttente, int a_distance) {
+    public Restaurant (int a_id, String a_nom, String a_specialite, int a_tempsAttente, int a_distance) {
+        id = a_id;
         nom = a_nom;
         specialite = a_specialite;
         //En minutes
         tempsAttente = a_tempsAttente;
         //En mètres
         distance = a_distance;
-        id = lastId++;
     }
 
     public String getNom() {

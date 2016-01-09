@@ -61,4 +61,21 @@ public class RestaurantListeAdapter extends ArrayAdapter<Restaurant>{
 
         return rowView;
     }
+
+    @Override
+    public int getCount() {
+        return restos.size();
+    }
+
+    @Override
+    public Restaurant getItem(int index)
+    {
+        return restos.get(index);
+    }
+
+    @Override
+    public long getItemId(int index)
+    {
+        return restos.get(index).getId();
+    }
 }

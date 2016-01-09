@@ -29,6 +29,7 @@ public class RestoFragment extends Fragment {
     String[] mEntreesName;
     String[] mPlatsName;
     String[] mDessertsName;
+    String[] mRestosName;
 
     RestoFragmentPager mPager = null;
 
@@ -46,10 +47,15 @@ public class RestoFragment extends Fragment {
         // Inflate the layout for this fragment
         View result = inflater.inflate(R.layout.fragment_resto, container, false);
 
+        mRestosName = getResources().getStringArray(R.array.restosName);
+
+
         //Recover the current resto
         Bundle bundle = getArguments();
         if (bundle != null)
             mCurrentResto = bundle.getInt("indexResto");
+
+        ((MainActivity)(getActivity())).setTitle(mRestosName[mCurrentResto]);
 
         //Recover the graph associated to the current resto
         int drawable = 0;
@@ -70,27 +76,13 @@ public class RestoFragment extends Fragment {
             case 4 :
                 drawable = R.drawable.ic_ru;
                 break;
+            case 5 :
+                drawable = R.drawable.ic_beurklc;
+                break;
             default :
                 break;
         }
         ((ImageView)result.findViewById(R.id.idGraphe)).setImageResource(drawable);
-
-        //Link the on left and on right button
-        ImageButton leftButton = (ImageButton) result.findViewById(R.id.leftButton);
-        leftButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPager.showLeft();
-            }
-        });
-
-        ImageButton rightButton = (ImageButton) result.findViewById(R.id.rightButton);
-        rightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPager.showRight();
-            }
-        });
 
         //Link the go button to the google map activity
         Button goButton = (Button) result.findViewById(R.id.goButton);
@@ -124,21 +116,22 @@ public class RestoFragment extends Fragment {
             }
         });
 
-        //Active the on left and on right gesture on the expandable list view
-        OnSwipeTouchListener gestureListener = new OnSwipeTouchListener(getActivity()) {
-            @Override
-            public void onSwipeLeft() {
-                mPager.showRight();
-            }
+        if (mPager != null) {
+            //Active the on left and on right gesture on the expandable list view
+            OnSwipeTouchListener gestureListener = new OnSwipeTouchListener(getActivity()) {
+                @Override
+                public void onSwipeLeft() {
+                    mPager.showRight();
+                }
 
-            @Override
-            public void onSwipeRight() {
-                mPager.showLeft();
-            }
-        };
-
-        result.findViewById(R.id.scrollView).setOnTouchListener(gestureListener);
-        menuView.setOnTouchListener(gestureListener);
+                @Override
+                public void onSwipeRight() {
+                    mPager.showLeft();
+                }
+            };
+            result.findViewById(R.id.scrollView).setOnTouchListener(gestureListener);
+            menuView.setOnTouchListener(gestureListener);
+        }
 
         return result;
     }

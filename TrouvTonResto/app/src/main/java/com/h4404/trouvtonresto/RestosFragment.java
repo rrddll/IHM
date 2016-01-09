@@ -20,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RestosFragment extends Fragment implements ListView.OnItemClickListener {
 
+    ArrayAdapter<Restaurant> mAdapter;
     ListView mListView;
     TextView horairesLabel;
     int timestampDebut;
@@ -97,10 +98,10 @@ public class RestosFragment extends Fragment implements ListView.OnItemClickList
             }
         });
 
-        ArrayAdapter<Restaurant> adapter = new RestaurantListeAdapter(getActivity(), restos);
+        mAdapter = new RestaurantListeAdapter(getActivity(), restos);
 
         mListView.setOnItemClickListener(this);
-        mListView.setAdapter(adapter);
+        mListView.setAdapter(mAdapter);
     }
 
     private List<Restaurant> allRestos() {
@@ -111,15 +112,21 @@ public class RestosFragment extends Fragment implements ListView.OnItemClickList
 
         List<Restaurant> retour = new ArrayList<>(noms.length);
         for (int i = 0 ; i < noms.length ; i++)
-            retour.add(new Restaurant(noms[i], specialites[i], tempsAttente[i], distances[i]));
+            retour.add(new Restaurant(i, noms[i], specialites[i], tempsAttente[i], distances[i]));
         return retour;
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Bundle bundle = new Bundle();
-        //A remplacer par id au cas où on implémente le tri avec id l'index du resto dans le fichier string.xml
-        bundle.putInt("indexResto", (int)position);
-        ((MainActivity)(getActivity())).displayView(R.id.restos_pager, bundle);
+        bundle.putInt("indexResto", (int) position);
+
+        ArrayList<Integer> sortedRestos = new ArrayList<>();
+        for ( Restaurant r : restos) {
+            sortedRestos.add(r.getId());
+        }
+        bundle.putIntegerArrayList("sortedRestos", sortedRestos);
+
+        ((MainActivity) (getActivity())).displayView(R.id.restos_pager, bundle);
     }
 }

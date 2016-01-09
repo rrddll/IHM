@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.MapFragment;
 import android.content.Context;
@@ -29,7 +30,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class CarteFragment extends Fragment implements OnMapReadyCallback {
+public class CarteFragment extends Fragment {
 
     private GoogleMap mMap;
     private LatLng mCurrentLocation;
@@ -37,6 +38,7 @@ public class CarteFragment extends Fragment implements OnMapReadyCallback {
     public static double mRestosLon[] = {4.8730053, 4.87485, 4.87503, 4.873202, 4.87615, 4.87462};
     String[] mRestosName;
     String[] mRestosSpecialite;
+    MapView mMapView;
 
     public CarteFragment() {
     }
@@ -46,21 +48,19 @@ public class CarteFragment extends Fragment implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_map, container, false);
-        MapFragment map = ((MapFragment) getActivity().getFragmentManager()
-                .findFragmentById(R.id.map));
-
-        map.getMapAsync(this);
 
         mRestosName = getResources().getStringArray(R.array.restosName);
         mRestosSpecialite = getResources().getStringArray(R.array.restosSpecialite);
 
+        mMapView = (MapView) view.findViewById(R.id.map);
+        mMapView.onCreate(savedInstanceState);
+        if(mMapView != null)
+            initMap(mMapView.getMap());
+
         return view;
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-
+    public void initMap(GoogleMap googleMap) {
 
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
@@ -90,7 +90,7 @@ public class CarteFragment extends Fragment implements OnMapReadyCallback {
             public void onInfoWindowClick(Marker marker) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("indexResto", Integer.parseInt(marker.getTitle()));
-                ((MainActivity)(getActivity())).displayView(R.id.restos_pager, bundle);
+                ((MainActivity)(getActivity())).displayView(R.id.resto, bundle);
             }
         });
 
@@ -115,5 +115,21 @@ public class CarteFragment extends Fragment implements OnMapReadyCallback {
 
         CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, 300, 300, 5);
         mMap.animateCamera(cu);
+    }
+
+    @Override
+    public void onResume() {
+        mMapView.onResume();
+        super.onResume();
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mMapView.onDestroy();
+    }
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mMapView.onLowMemory();
     }
 }

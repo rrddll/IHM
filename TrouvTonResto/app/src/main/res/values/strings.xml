@@ -107,12 +107,11 @@
     <integer name="minuteDebut">30</integer>
     <integer name="minuteFin">00</integer>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu">Menu</string>
     <string name="entree">Entrée</string>
     <string name="plat">Plat</string>
     <string name="dessert">Dessert</string>
     <string name="tpsAttente">Temps d\'attente</string>
+    <string name="info">Détails</string>
 
 </resources>

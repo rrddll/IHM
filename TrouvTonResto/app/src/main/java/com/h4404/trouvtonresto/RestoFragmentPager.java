@@ -12,8 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class RestoFragmentPager extends Fragment {
 
     String[] restosName;
     Integer mCurrentResto = 0;
+    ArrayList<Integer> mSortedRestos = new ArrayList<>();
 
     public RestoFragmentPager() {
 
@@ -35,10 +38,29 @@ public class RestoFragmentPager extends Fragment {
         restosName = getResources().getStringArray(R.array.restosName);
 
         Bundle bundle = getArguments();
-        if (bundle != null)
+        if (bundle != null) {
             mCurrentResto = bundle.getInt("indexResto");
+            mSortedRestos = bundle.getIntegerArrayList("sortedRestos");
+        }
 
         setCurrentResto(mCurrentResto, false);
+
+        //Link the on left and on right button
+        ImageButton leftButton = (ImageButton) result.findViewById(R.id.leftButton);
+        leftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showLeft();
+            }
+        });
+
+        ImageButton rightButton = (ImageButton) result.findViewById(R.id.rightButton);
+        rightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showRight();
+            }
+        });
 
         result.setOnTouchListener(new OnSwipeTouchListener(getActivity()) {
             @Override
@@ -77,14 +99,12 @@ public class RestoFragmentPager extends Fragment {
             ft.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
 
         Bundle bundle = new Bundle();
-        bundle.putInt("indexResto", (int) nextResto);
+        bundle.putInt("indexResto", (int) mSortedRestos.get(nextResto));
         fragment.setArguments(bundle);
 
         ft.replace(R.id.resto_frame, fragment);
         ft.commit();
 
         mCurrentResto = nextResto;
-        ((MainActivity)(getActivity())).setTitle(restosName[mCurrentResto]);
-
     }
 }
