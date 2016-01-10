@@ -13,6 +13,33 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Switch
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Recevoir des notifications"
+            android:id="@+id/switch2"
+            android:checked="false"/>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:id="@+id/llparams2"
+            android:visibility="gone">
+            <TimePicker
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,51 +65,36 @@
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"/>
 
-    <Switch
+    <!--<Switch
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Restaurants préférés"
         android:id="@+id/switch1"
-        android:checked="false"/>
+        android:checked="false"/>-->
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_vertical"
-        android:id="@+id/llparams"
-        android:visibility="gone"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
-
-
-
-    <Switch
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Recevoir des notifications"
-        android:id="@+id/switch2"
-        android:checked="false"/>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_vertical"
-        android:id="@+id/llparams2"
-        android:visibility="gone">
-        <TimePicker
+        <TextView
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Restaurants préférés"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:id="@+id/llparams"/>
+        <!--android:visibility="gone"/>-->
+
+
+
+
+
+
+
+
     </LinearLayout>
 </ScrollView>

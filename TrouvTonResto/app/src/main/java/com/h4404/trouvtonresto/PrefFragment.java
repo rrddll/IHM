@@ -31,10 +31,10 @@ public class PrefFragment extends Fragment implements CompoundButton.OnCheckedCh
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_pref, container, false);
 
-        Switch s1 = (Switch) rootView.findViewById(R.id.switch1);
+        /*Switch s1 = (Switch) rootView.findViewById(R.id.switch1);
         if (s1 != null) {
             s1.setOnCheckedChangeListener((CompoundButton.OnCheckedChangeListener) this);
-        }
+        }*/
 
         Switch s2 = (Switch) rootView.findViewById(R.id.switch2);
         if (s2 != null) {
@@ -81,19 +81,19 @@ public class PrefFragment extends Fragment implements CompoundButton.OnCheckedCh
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         /*Toast.makeText(this, "The Switch is " + (isChecked ? "on" : "off"),
                 Toast.LENGTH_SHORT).show();*/
-        if(buttonView.getId() == R.id.switch1) {
+        /*if(buttonView.getId() == R.id.switch1) {
             if (isChecked) {
                 getActivity().findViewById(R.id.llparams).setVisibility(View.VISIBLE);
             } else {
 
                 getActivity().findViewById(R.id.llparams).setVisibility(View.GONE);
             }
-        }else{
+        }else{*/
             if (isChecked) {
                 getActivity().findViewById(R.id.llparams2).setVisibility(View.VISIBLE);
             } else {
                 getActivity().findViewById(R.id.llparams2).setVisibility(View.GONE);
             }
-        }
+        //}
     }
 }
