@@ -12,7 +12,7 @@
 
     <string name="titleRestos">Restaurants</string>
     <string name="titleCarte">Carte</string>
-    <string name="titlePref">Préférence</string>
+    <string name="titlePref">Paramètres</string>
     <string name="titleRouteFragment">Itinéraire</string>
     <string name="titleRestoPager">Restaurant</string>
     <string name="search_title">Chercher</string>
@@ -26,7 +26,7 @@
     <string name="tuto_titre3">Aidez nous à en savoir un peu plus sur vous !</string>
     <string name="tuto_text3">Dites nous quels sont les restaurants qui vous intéressent (ceux auxquels vous pouvez aller en fonction de votre abonnement).</string>
 
-    <string name="tuto_titre4">Allez dans l\'onglet \"Préférences\" du menu</string>
+    <string name="tuto_titre4">Allez dans l\'onglet \"Paramètres\" du menu</string>
     <string name="tuto_text4">Vous pourrez changer vos restaurants préférés à tout moment.</string>
 
     <string name="action_next">Suiv</string>
