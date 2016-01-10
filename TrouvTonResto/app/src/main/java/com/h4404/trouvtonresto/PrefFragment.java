@@ -84,6 +84,8 @@ public class PrefFragment extends Fragment implements CompoundButton.OnCheckedCh
     }
 
     View.OnClickListener onCheckboxClicked(final CheckBox cb) {
+        MainActivity m = (MainActivity)getActivity();
+        m.launch_Notification();
         return new View.OnClickListener() {
 
             public void onClick(View v) {
