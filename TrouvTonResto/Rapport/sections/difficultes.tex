@@ -1,0 +1,99 @@
+\subsection{Difficultés techniques rencontrées}
+Le développement sous Android étant nouveau pour beaucoup d'entre nous et la
+plateforme de développement n'étant pas disponible au début du projet sur les
+machines du département, il nous a fallu commencer par installer tout
+l'environnement de travail. Nous avons perdu beaucoup de temps au début
+pour que chacun installe Android Studio, les SDKs nécessaires et configure
+l'émulateur. \\
+
+Voulant insérer une carte Google dans notre application et voulant des
+transitions animées entre nos différentes fenêtres, nous avons été confronté
+à des problèmes de compatibilité entre les versions d'Android. En effet, 
+certaines fonctionnalités que nous voulions utiliser n'étaient pas disponible
+avec la version minimale du SDK que nous avions choisie au départ. C'est pourquoi
+nous avons fini par prendre une version du SDK plus récente (la 17). Certes,
+moins d'utilisateurs pourraient utiliser notre application mais comme l'objectif
+du projet était de créer un prototype, nous avons décidé de mettre le focus sur 
+la rapidité de développement plutôt que sur la comptabilité. \\
+
+Sur la fenêtre avec les détails d'un restaurant, il y a un graphique dynamique
+qui permet à l'utilisateur de connaître rapidement une estimation du temps
+d'attente. Pour cela, il doit pouvoir déplacer avec le doigt
+la barre verticale rouge indiquant l'heure. Néanmoins, n'ayant
+pas le temps de développer tout un système de graphique dynamique, nous avons
+préféré afficher seulement une image. Celle-ci permet d'avoir un bon aperçu du
+visuel final mais ne permet pas de tester les interactions avec le graphique.\\
+
+Une dernière difficulté technique que nous avons rencontrée est due au fait que
+notre application est un prototype. Toutes nos données sont factices et stockées
+en dur dans l'application. Du coup, il n'y aucune communication avec un serveur
+distant, aucune notification, aucun calcul, etc. Néanmoins, nous voulions avoir
+une application le plus proche possible de la réalité. C'est pourquoi nous avons
+utilisé des minuteurs pour simuler les temps d'attentes et l'arrivée des 
+notifications. 
+
+\section{Problèmes d'utilisabilités rencontrés}
+
+Le principal problème d'utilisabilité que nous avons rencontré se trouve sur 
+la fenêtre d'affichage des détails d'un restaurant. Nous voulions pouvoir 
+permettre à un utilisateur avancé de changer plus rapidement de restaurant
+en faisant un simple glissement du doigt, comme il changerait de discussion dans sa
+messagerie. Néanmoins, nous voulions également trouver un moyen simple pour
+qu'un utilisateur puisse découvrir cette fonctionnalité. Cela nous a amené 
+à nous poser pleins de questions :  
+
+\begin{itemize}
+\item Etait-ce une pratique courante d'Android qui ne nécessite pas d'apprentissage ?
+\item Devrions-nous afficher des flèches pour expliquer à un utilisateur qu'il pouvait
+naviguer entre les restaurants ? 
+\item Et si nous utilisions ces flèches, où fallait-elles les mettre ?
+\item Au milieu, de part et d'autre de l'écran ?
+\item De chaque côté du titre "Temps d'attente" ?
+\item Ou bien au dessus de ce titre ? 
+\end{itemize}
+
+Nous avons fini par implémenter cette dernière solution car selon-nous il est nécessaire
+de montrer à l'utilisateur ce qu'il peut faire et de ne pas lui cacher des fonctionnalités.
+Pour la position des flèches, de part et d'autre de l'écran nous perdions trop de place horizontale, 
+place qui est réduite sur les téléphones. Les mettre de chaque côté du titre amenait une
+incohérence. Nous avions l'impression de changer de graphique et non de restaurant. C'est
+pourquoi nous avons décidé de rajouter une barre au dessus de ce titre pour y mettre les
+flèches. \\
+ 
+Un autre problème que nous avons rencontré sur cette page est la taille des menus. Si 
+nous prenions, par exemple, les entrées du Restaurant universitaire de la Doua, chaque midi
+il y en a une quinzaine, obligeant de ce fait l'utilisateur
+à faire défiler l'écran vers le bas pour afficher ce qui est réellement intéressant, le 
+plat principal. C'est pourquoi, nous avons décidé de mettre le menu dans une liste extensible.
+Ainsi, l'utilisateur ne voit au départ que les grandes catégories du menu (entrée, plat et
+dessert). C'est seulement en cliquant sur ce qui l'intéresse qu'il pourra voir son contenu.
+Cela permet d'éviter de surcharger cet écran. \\
+ 
+ 
+Sur la page listant les restaurants, il existe un curseur qui permet à l'utilisateur
+d'avoir des prévisions pour l'heure de son choix. Néanmoins, le calcul des
+prévisions prend un certain temps. Durant le calcul, il ne faut pas que l'utilisateur 
+puisse cliquer sur un restaurant alors que les données ne celui-ci ne sont pas
+encore à jour. Comment prévenir l'utilisateur qu'un calcul est en cours et qu'il 
+faut attendre ? Pour répondre à cette question, nous avons décidé de griser la 
+liste des restaurants à partir du moment où le curseur est déplacé. \\
+
+Évidemment notre application contient un écran de préférences pour permettre
+à l'utilisateur de modifier les réglages de l'application. Néanmoins, nous 
+voulions que dès la première utilisation l'application soit personnalisée. A 
+quoi sert d'afficher un restaurant dans lequel l'utilisateur ne puisse pas aller ?
+Un utilisateur lambda a rarement le réflexe d'aller modifier les préférences de
+son application. C'est pourquoi nous avons décidé d'afficher un écran de première
+ouverture qui permet à l'utilisateur de personnaliser l'application et de lui
+expliquer brièvement son fonctionnement. \\
+
+Le dernier problème d'utilisabilité que nous avons rencontré se situe
+dans l'affichage de la carte. Au début, nous centrions la carte sur la 
+position de l'utilisateur comme cela se fait dans beaucoup d'applications. 
+Néanmoins, si l'utilisateur ne se trouve pas sur le campus mais dans ses
+alentours, il devra faire glisser la carte pour chercher les restaurants. 
+Nous avons trouvé que ceci n'était pas très pertinent car, quelque soit la
+position de l'utilisateur, il ne sera affiché que les restaurants du campus. 
+C'est pourquoi nous avons fait un système qui centre la carte sur les restaurants
+et non sur la position GPS du téléphone. 
+  

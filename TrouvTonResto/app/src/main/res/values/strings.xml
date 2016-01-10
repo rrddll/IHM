@@ -12,7 +12,7 @@
 
     <string name="titleRestos">Restaurants</string>
     <string name="titleCarte">Carte</string>
-    <string name="titlePref">Préférence</string>
+    <string name="titlePref">Paramètres</string>
     <string name="titleRouteFragment">Itinéraire</string>
     <string name="titleRestoPager">Restaurant</string>
     <string name="search_title">Chercher</string>
