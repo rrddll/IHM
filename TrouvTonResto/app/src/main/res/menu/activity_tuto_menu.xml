@@ -4,11 +4,11 @@
 <!-- Adds an item to the list. -->
 <item android:id="@+id/action_finish"
     android:title="@string/action_finish"
-    android:showAsAction="ifRoom|withText" />
+    android:showAsAction="collapseActionView|ifRoom" />
 
 <item android:id="@+id/action_next"
     android:title="@string/action_next"
     android:icon="@drawable/ic_chevron_right"
-    android:showAsAction="ifRoom|withText" />
+    android:showAsAction="collapseActionView|ifRoom" />
 
 </menu>

@@ -1,6 +1,8 @@
 package com.h4404.trouvtonresto;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,6 +12,8 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,9 +21,9 @@ import android.widget.CheckBox;
 import java.lang.reflect.Field;
 
 
-public class TutoPageActivity extends FragmentActivity {
+public class TutoPageActivity extends AppCompatActivity {
 
-    private static final int NUM_PAGES = 4;
+    private static final int NUM_PAGES = 3;
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -32,6 +36,8 @@ public class TutoPageActivity extends FragmentActivity {
      */
     private PagerAdapter mPagerAdapter;
 
+
+    private Toolbar toolbar;
     /**
      * Array that contains the state of the checkboxes
      */
@@ -59,12 +65,24 @@ public class TutoPageActivity extends FragmentActivity {
         for (boolean checkbox : checkboxes) {
             checkbox = false;
         }
+
+        toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar);                   // Setting toolbar as the ActionBar with setSupportActionBar() call
+
+//        getSupportActionBar().setDisplayShowTitleEnabled(true);
+
+//        ActionBar actionBar = getActionBar();
+//        actionBar.setBackgroundDrawable(new ColorDrawable(Color.RED)); // set your desired color
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.activity_tuto_menu, menu);
+
+        for(int i = 0 ; i < menu.size() ; i++ )
+            menu.getItem(i).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 
 //        menu.findItem(R.id.action_next).setEnabled(mPager.getCurrentItem() < NUM_PAGES - 1);
         if (mPager.getCurrentItem() == NUM_PAGES - 1) {

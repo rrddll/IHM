@@ -17,17 +17,15 @@
     <string name="titleRestoPager">Restaurant</string>
     <string name="search_title">Chercher</string>
 
-    <string name="tuto_titre1">Bienvenue sur l\'application TrouvTonResto !</string>
-    <string name="tuto_text1">Cette application va vous aider à choisir dans quel restaurant du campus vous pourrez manger chaque midi !</string>
+    <string name="tuto_titre1">Bienvenue sur l\'application TrouvTonResto</string>
+    <string name="tuto_text1">Cette application va vous aider à choisir dans quel restaurant du campus vous pourrez manger chaque midi.</string>
 
-    <string name="tuto_titre2">Allez dans l\'onglet \"Carte\" du menu</string>
-    <string name="tuto_text2">Vous retrouverez la carte du campus avec la localisation des restaurants.</string>
+    <string name="tuto_titre2">Découvrez les restaurants</string>
+    <string name="tuto_text2">Vous retrouverez la carte du campus avec la localisation des restaurants dans le menu "Carte".</string>
 
-    <string name="tuto_titre3">Aidez nous à en savoir un peu plus sur vous !</string>
-    <string name="tuto_text3">Dites nous quels sont les restaurants qui vous intéressent (ceux auxquels vous pouvez aller en fonction de votre abonnement).</string>
-
-    <string name="tuto_titre4">Allez dans l\'onglet \"Préférences\" du menu</string>
-    <string name="tuto_text4">Vous pourrez changer vos restaurants préférés à tout moment.</string>
+    <string name="tuto_titre3">Parlez-nous de vous</string>
+    <string name="tuto_text3">Dites nous quels sont les restaurants qui vous intéressent.</string>
+    <string name="tuto_text4">Vous pourrez changer vos restaurants préférés à tout moment dans le menu "Préférences".</string>
 
     <string name="action_next">Suiv</string>
     <string name="action_finish">Ignorer</string>

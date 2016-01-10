@@ -60,8 +60,11 @@
             android:name=".TutoPageActivity"
             android:label="@string/app_name"
             android:uiOptions="splitActionBarWhenNarrow"
-            android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar">
+        <!--
+
+        -->
         </activity>
 
     </application>
