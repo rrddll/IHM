@@ -161,7 +161,7 @@
 \renewcommand{\cfttoctitlefont}{\lignegrise
 \par\noindent\hfill\large\color{rougeSombreRemy}\sffamily\bfseries\decofourleft~}
 
-\addtolength{\cftsecnumwidth}{0.3em}
+\addtolength{\cftsecnumwidth}{1em}
 \setlength{\cftsubsubsecnumwidth}{1.6em}
 \setlength{\cftparanumwidth}{1.6em}
 
