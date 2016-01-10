@@ -32,13 +32,22 @@
     <string name="action_ok">OK</string>
 
     <string-array name="restosName">
-
         <item>Castor et Pollux</item>
         <item>L\'Olivier</item>
         <item>Le Grillon</item>
         <item>Le Prévert</item>
         <item>Restaurant universitaire la Doua</item>
         <item>Le castor gourmand</item>
+    </string-array>
+
+    <string-array name="days">
+        <item>Lundi</item>
+        <item>Mardi</item>
+        <item>Mercredi</item>
+        <item>Jeudi</item>
+        <item>Vendredi</item>
+        <item>Samedi</item>
+        <item>Dimanche</item>
     </string-array>
 
     <string-array name="restosEntrees">
