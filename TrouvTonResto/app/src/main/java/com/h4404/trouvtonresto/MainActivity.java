@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.FragmentTransaction;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -199,6 +200,7 @@ public class  MainActivity extends AppCompatActivity
     }
 
     public void launch_Notification() {
+
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.logo_petit)

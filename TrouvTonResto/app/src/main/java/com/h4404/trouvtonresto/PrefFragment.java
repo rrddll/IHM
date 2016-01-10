@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.CountDownTimer;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,9 +26,6 @@ public class PrefFragment extends Fragment implements CompoundButton.OnCheckedCh
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_pref, container, false);
 
@@ -71,21 +69,29 @@ public class PrefFragment extends Fragment implements CompoundButton.OnCheckedCh
                 cb.setTextColor(Color.BLACK);
                 lldays.addView(cb);
             }
-
         }
-
 
         /*ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_pref, container, false);
 
         CheckBox cb = (CheckBox) rootView.findViewById(R.id.checkBox1);
         cb.setChecked(TutoPageActivity.checkboxes[0]);*/
 
+        new CountDownTimer(10000, 10000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+                ((MainActivity)getActivity()).launch_Notification();
+            }
+        }.start();
+
         return rootView;
     }
 
     View.OnClickListener onCheckboxClicked(final CheckBox cb) {
-        MainActivity m = (MainActivity)getActivity();
-        m.launch_Notification();
         return new View.OnClickListener() {
 
             public void onClick(View v) {
