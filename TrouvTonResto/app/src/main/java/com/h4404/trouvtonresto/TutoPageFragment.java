@@ -51,9 +51,6 @@ public class TutoPageFragment extends Fragment {
             case 2:
                 frag = R.layout.fragment_tuto_page3;
                 break;
-            case 3:
-                frag = R.layout.fragment_tuto_page4;
-                break;
         }
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(frag, container, false);
@@ -69,9 +66,12 @@ public class TutoPageFragment extends Fragment {
                 cb.setOnClickListener(onCheckboxClicked(cb));
                 cb.setButtonDrawable(ContextCompat.getDrawable(context, R.xml.custom_checkbox));
                 cb.setTextColor(Color.BLACK);
-                ll.addView(cb);
+
+                ll.addView(cb, i + 2);
             }
         }
+
+
 
         return rootView;
     }

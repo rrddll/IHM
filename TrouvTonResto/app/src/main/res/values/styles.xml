@@ -17,5 +17,42 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.Tuto" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+        <!--
+    <style name="AppTheme.Tuto">
+        <item name="windowContentOverlay">@drawable/ab_solid_shadow_holo</item>
+        <item name="actionBarStyle">@style/Widget.Holo.Light.ActionBar.Solid.Inverse</item>
+        <item name="actionBarWidgetTheme">@style/Theme.Holo</item>
+        <item name="actionBarTheme">@null</item>
 
+        <item name="actionDropDownStyle">@style/Widget.Holo.Spinner.DropDown.ActionBar</item>
+        <item name="actionButtonStyle">@style/Widget.Holo.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.Holo.ActionButton.Overflow</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_holo_dark</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_holo_dark</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_cab_done_holo_dark</item>
+        <item name="homeAsUpIndicator">@drawable/ic_ab_back_holo_dark</item>
+        <item name="actionBarTabStyle">@style/Widget.Holo.Light.ActionBar.TabView.Inverse</item>
+        <item name="actionBarTabBarStyle">@style/Widget.Holo.Light.ActionBar.TabBar.Inverse</item>
+        <item name="actionBarTabTextStyle">@style/Widget.Holo.Light.ActionBar.TabText.Inverse</item>
+        <item name="actionBarDivider">@drawable/list_divider_holo_dark</item>
+        <item name="actionBarItemBackground">@drawable/item_background_holo_dark</item>
+        <item name="actionMenuTextColor">?attr/textColorPrimaryInverse</item>
+        <item name="actionModeStyle">@style/Widget.Holo.Light.ActionMode.Inverse</item>
+        <item name="actionModeCloseButtonStyle">@style/Widget.Holo.ActionButton.CloseMode</item>
+        <item name="actionModePopupWindowStyle">@style/Widget.Holo.PopupWindow.ActionMode</item>
+
+        <item name="actionModeCutDrawable">@drawable/ic_menu_cut_holo_dark</item>
+        <item name="actionModeCopyDrawable">@drawable/ic_menu_copy_holo_dark</item>
+        <item name="actionModePasteDrawable">@drawable/ic_menu_paste_holo_dark</item>
+        <item name="actionModeSelectAllDrawable">@drawable/ic_menu_selectall_holo_dark</item>
+        <item name="actionModeShareDrawable">@drawable/ic_menu_share_holo_dark</item>
+        <item name="actionModeFindDrawable">@drawable/ic_menu_find_holo_dark</item>
+        <item name="actionModeWebSearchDrawable">@drawable/ic_menu_search_holo_dark</item>
+    </style>
+-->
 </resources>

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="@drawable/tuto_p1">
 
     <TextView
         android:layout_width="match_parent"
@@ -17,8 +18,8 @@
         android:textAlignment="center"
         android:focusableInTouchMode="false"
         android:textColor="#212121"
-        android:textSize="@dimen/design_fab_content_size"
-        android:padding="30px" />
+        android:textSize="28dp"
+        android:padding="20px" />
 
     <TextView
         android:layout_width="match_parent"

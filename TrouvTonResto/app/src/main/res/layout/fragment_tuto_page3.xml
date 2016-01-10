@@ -7,7 +7,8 @@
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
     android:gravity="center_vertical"
-    android:id="@+id/lltuto">
+    android:id="@+id/lltuto"
+    android:background="@drawable/tuto_p3">
 
     <TextView
         android:layout_width="match_parent"
@@ -31,4 +32,13 @@
         android:textColor="#212121"
         android:padding="30px" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tuto_text4"
+        android:id="@+id/textView6"
+        android:textAlignment="center"
+        android:textSize="@dimen/activity_horizontal_margin"
+        android:textColor="#212121"
+        android:padding="30px" />
 </LinearLayout>
