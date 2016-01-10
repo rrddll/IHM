@@ -1,45 +1,54 @@
+A chaque lancement de l'application vous trouverez l'écran de la figure \ref{loadingg} qui 
+permet à l'application de récupérer les informations sur le réseau.
+\unscaledFigure{images/loading.png}{Ecran de chargement de 
+l'application \label{loadingg}}
+
 Au premier lancement de l’application, un certain nombre de questions vous
 seront posées ayant pour objectif de définir votre profil utilisateur. Les 
 réponses apportées seront alors mémorisées par l’application afin de
-répondre au mieux à vos attentes. Vous trouverez ci après l’écran de
-chargement de l’application, ainsi qu’un aperçu de la première
-et de la seconde question qui vous sera poser au premier lancement de
-l’application (image 2 et 3) : 
+répondre au mieux à vos attentes. L'écran \ref{first} représente la première question
+qui vous sera posée. L'écran \ref{second} représente la seconde question qui vous 
+sera posée, tant dis que l'écran \ref{third} représente la troisième question qui vous
+sera posée. 
 \unscaledFigure{images/first_screen_1.png}{Premier écran lors du premier
-lancement de l'application}
+lancement de l'application \label{first}}
 \unscaledFigure{images/first_screen_2.png}{Second écran lors du premier
-lancement de l'application}
+lancement de l'application \label{second}}
 \unscaledFigure{images/first_screen_3.png}{Troisème écran lors du premier
-lancement de l'application}
+lancement de l'application \label{third}}
 
 Ces paramètres peuvent être modifiés à tout moment dans la menu paramètre
 accessible via le volet de navigation comme le présente l’image ci-après : 
 \unscaledFigure{images/drawer.png}{Volet de navigation}
 
-Dans les paramètres, il est aussi possible de supprimer la notification
-automatique qui vous sera envoyé systématiquement à midi tous les jours. Il est
-également possible de changer l’heure de cette notification afin qu’elle puisse vous
-prévenir au moment le plus opportun selon votre situation. 
-\unscaledFigure{images/prefs.png}{Ecran des paramètres}
+Dans les paramètres, il est aussi possible d' activer/supprimer la notification
+journalière automatique qui vous est envoyée systématiquement à midi tous les jours.
+Il est également possible de changer l’heure de cette notification afin qu’elle 
+puisse vous prévenir au moment le plus opportun selon votre situation. 
+Enfin, il est possible, comme le montre l'écran \ref{prefs} de choisir si vous 
+préférez que vos restaurants soient choisis selon la proximité ou le temps 
+d'attente.
+\unscaledFigure{images/prefs.png}{Ecran des paramètres \label{prefs}}
 
 Une fois votre application paramétrée avec vos préférences, vous arriverez
-systématiquement sur cet écran lors d’un nouveau lancement. Nous
-rapellons que toute application sous android peut tourner en tache de fond,
+systématiquement sur l'écran \ref{restos} lors d’un nouveau lancement. Nous
+rapellons que toute application sous android peut tourner en tâche de fond,
 n’oubliez pas de la quitter intégralement lorsque vous n’en avez plus l’utilité.
 Cela augmentera l’autonomie de votre appareil et permettra de limiter vos
 consommations de datas. 
-\unscaledFigure{images/restos.png}{Ecran principal de l'application}
+\unscaledFigure{images/restos.png}{Ecran principal de l'application 
+\label{restos}}
 
-Sur cet écran sont rangés par ordre d’attente minimum l’ensemble des
+Sur l'écran \ref{slider} sont rangés par ordre correspondant à vos paramètres l’ensemble des
 restaurants cochés précédement. Il est possible de régler l’heure à laquelle
-vous souhaitez déjeuner grâce au slider situé en bas de l’écran
+vous souhaitez déjeuner grâce au slider situé en bas de l’écran.
 \unscaledFigure{images/restos_slide.png}{Le slider permet d'ajuster l'heure
-à laquelle vous souhaitez déjeuner}
-
+à laquelle vous souhaitez déjeuner \label{slider}}
+ 
 Il est possible sur un simple clique sur un restaurant de l’écran précédent de
 visualiser les informations précise de ce dernier. Voici un exemple avec le
 restaurant universitaire de la Doua : 
-\unscaledFigure{images//resto.png}{Les détails du restaurant universitaire de
+\unscaledFigure{images/resto.png}{Les détails du restaurant universitaire de
 la Doua}
 
 Sur cet écran, bon nombre d’informations sont disponibles. En premier lieu,
@@ -47,30 +56,31 @@ vous trouverez une estimation du temps d’attente en fonction de l’heure de
 passage au restaurant. Cette estimation future est basée sur les connaissances
 de l’application. Cependant, l’heure affichée avec la barre de séparation est le
 temps réel d’attente, défini par des capteurs placés judicieusement sur toutes
-les files d’attente des différents points de restauration : 
-\unscaledFigure{images//resto.png}{Les détails du restaurant universitaire de
-la Doua}
+les files d’attente des différents points de restauration. Voici un exemple d'un
+exemple de graphique de fil d'attente de l'Olivier :
+\unscaledFigure{images/graph_attente.png}{Les détails du restaurant  l'Olivier}
 
-Sur le même écran, légèrement au dessous se trouve le détail des entrées,
+Sur le même écran, légèrement plus bas, se trouve le détail des entrées,
 plats et desserts qui sont actuellement disponibles dans le restaurant
-sélectionné. Dans l’écran ci-après, nous sommes toujours sur
-notre écran Castor et Pollux et nous pouvons voir qu’il y aura en entée : 
-X, Y et Z, en plat : T, V, W et en dessert : Alpha, Beta, VariableSansNom. 
-\unscaledFigure{images/resto.png}{Les détails du restaurant universitaire de
-la Doua}
+sélectionné. Dans l’écran \ref{detailsMenu}, nous sommes toujours sur
+notre écran de l'Olivier et nous pouvons voir qu’il y aura en entée : 
+de l'oeuf mimosa, de la quiche à la volaille et du saucisson brioché, en plat : 
+de la brochette servis avec des frites, du poisson servi avec des légumes et de 
+la pizza et en dessert : seulement des beignets sont proposés.  
+\unscaledFigure{images/menus_restaurant_details.png}{Les détails des menus
+de l'Olivier \label{detailsMenu}}
 
 Enfin, en dessous des plats disponibles dans le restaurant se trouve le
 bouton "Y aller !" permettant de démarrer l’application Maps (Google) afin de
 vous rendre de votre lieu actuel vers le restaurant sélectionné. Voici un exemple
-de cette carte :
-\unscaledFigure{images//resto.png}{Les détails du restaurant universitaire de
-la Doua}
+lorsque l'on appuie sur le bouton "Y aller" :
+\unscaledFigure{images/google_maps.png}{Utilisation de l'application Google Map
+afin de réaliser les déplacements}
 
 Depuis le détail d’un restaurant il vous est possible de swipper des 
 détails d’un restaurant à un autre facilement en glissant son doigt vers la
-gauche ou la droite de l’écran (image 12) : 
-\unscaledFigure{images//resto.png}{Les détails du restaurant universitaire de
-la Doua}
+gauche ou la droite de l’écran. Les défilements ont lieu d'un restaurant à l'autre
+conformément à la liste triée que nous avons vu précédement (cf écran \ref{restos}).
 
 Enfin, pour les nouveaux étudiants, il est possible d'accéder via le volet de navigation
 à la carte du campus afin de localiser rapidemment où sont situés les différents
