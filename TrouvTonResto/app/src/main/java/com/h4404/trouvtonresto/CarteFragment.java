@@ -77,10 +77,14 @@ public class CarteFragment extends Fragment {
                 View v = getActivity().getLayoutInflater().inflate(R.layout.maker_info_window, null);
                 TextView nomResto= (TextView) v.findViewById(R.id.nomResto);
                 TextView specialité=(TextView) v.findViewById(R.id.specialiteResto);
-
-                nomResto.setText(mRestosName[Integer.parseInt(marker.getTitle())]);
-                specialité.setText(mRestosSpecialite[Integer.parseInt(marker.getTitle())]);
-
+                if (marker.getTitle().equals("Moi")) {
+                    nomResto.setText("Vous êtes ici");
+                    specialité.setText("");
+                }
+                else {
+                    nomResto.setText(mRestosName[Integer.parseInt(marker.getTitle())]);
+                    specialité.setText(mRestosSpecialite[Integer.parseInt(marker.getTitle())]);
+                }
                 return v;
             }
         });
@@ -88,6 +92,8 @@ public class CarteFragment extends Fragment {
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
+                if (marker.getTitle().equals("Moi"))
+                    return;
                 Bundle bundle = new Bundle();
                 bundle.putInt("indexResto", Integer.parseInt(marker.getTitle()));
                 ((MainActivity)(getActivity())).displayView(R.id.resto, bundle);
@@ -97,8 +103,8 @@ public class CarteFragment extends Fragment {
         mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
 
             @Override
-            public void onMyLocationChange(Location arg0) {
-                LatLng myLocation = new LatLng(mMap.getMyLocation().getLatitude(), mMap.getMyLocation().getLongitude());
+            public void onMyLocationChange(Location args0) {
+                LatLng myLocation = new LatLng(args0.getLatitude(), args0.getLongitude());
                 mMap.addMarker(new MarkerOptions().position(myLocation).title("Moi").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
             }
         });
