@@ -66,7 +66,7 @@ public class TutoPageFragment extends Fragment {
                 cb.setOnClickListener(onCheckboxClicked(cb));
                 cb.setButtonDrawable(ContextCompat.getDrawable(context, R.xml.custom_checkbox));
                 cb.setTextColor(Color.BLACK);
-
+                cb.setChecked(true);
                 ll.addView(cb, i + 2);
             }
         }

@@ -54,9 +54,12 @@ public class PrefFragment extends Fragment implements CompoundButton.OnCheckedCh
                 cb.setOnClickListener(onCheckboxClicked(cb));
                 cb.setButtonDrawable(ContextCompat.getDrawable(context, R.xml.custom_checkbox));
                 cb.setTextColor(Color.BLACK);
-                ll.addView(cb);
+                if (TutoPageActivity.checkboxes[i])
+                    cb.setChecked(true);
+                    ll.addView(cb);
             }
 
+/*
             final LinearLayout lldays = (LinearLayout) rootView.findViewById(R.id.lldays);
 
             String[] strDays = getResources().getStringArray(R.array.days);
@@ -69,6 +72,7 @@ public class PrefFragment extends Fragment implements CompoundButton.OnCheckedCh
                 cb.setTextColor(Color.BLACK);
                 lldays.addView(cb);
             }
+*/
         }
 
         /*ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_pref, container, false);
@@ -80,7 +84,6 @@ public class PrefFragment extends Fragment implements CompoundButton.OnCheckedCh
 
             @Override
             public void onTick(long millisUntilFinished) {
-
             }
 
             public void onFinish() {

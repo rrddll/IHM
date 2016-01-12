@@ -204,7 +204,7 @@ public class  MainActivity extends AppCompatActivity
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.logo_petit)
-                        .setContentTitle("Allez donc au Castor&Pollux")
+                        .setContentTitle("Allez donc au Prévert !")
                         .setContentText("C'est la bas qu'il y a le moins de queue");
 
         Intent resultIntent = new Intent(this, MainActivity.class);
