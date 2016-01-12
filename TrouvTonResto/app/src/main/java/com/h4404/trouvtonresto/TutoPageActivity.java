@@ -62,8 +62,8 @@ public class TutoPageActivity extends AppCompatActivity {
         // Initialize the array
         String[] strRestos = getResources().getStringArray(R.array.restosName);
         checkboxes = new boolean[strRestos.length];
-        for (boolean checkbox : checkboxes) {
-            checkbox = true;
+        for (int i = 0 ; i < checkboxes.length ; i++) {
+            checkboxes[i] = true;
         }
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
