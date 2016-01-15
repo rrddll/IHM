@@ -230,7 +230,7 @@
 	\flushleft
 	\color{grisSombre}
 	{
-	\large	PLDSI}\vspace{8\lineskip}\par
+	\large	IHM}\vspace{8\lineskip}\par
 
 	{\parbox{\linewidth}{\bfseries\Huge \makeatletter\@title\makeatother}\vspace{12\lineskip}}
 
