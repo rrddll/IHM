@@ -287,7 +287,7 @@
 \newcommand{\strechedHeightFigure}[3][H]{
 \begin{figure}[#1]
 	\centering
-	\includegraphics[height=.95\textheight]{#2}
+	\includegraphics[height=.90\textheight]{#2}
 	\caption{#3}
 	\end{figure}
 }
