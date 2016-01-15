@@ -15,6 +15,7 @@
 \RequirePackage{xspace}
 \RequirePackage{fancyvrb}
 \RequirePackage{ltablex}
+\RequirePackage{placeins}
 \RequirePackage[left=2.3cm, right=2.3cm, top=3cm, bottom=3cm]{geometry}
 
 \RequirePackage{amsmath}
@@ -152,16 +153,28 @@
 \renewcommand{\thesubsubsection}{\arabic{subsubsection}}
 \renewcommand{\theparagraph}{\alph{paragraph}}
 
-%-------------- Table des matières--------------------------------------
+%-------------- Ligne grise--------------------------------------
 \newcommand{\lignegrise}{\noindent{\color{gray}\hdashrule[0pt][x]{\linewidth}{2pt}{2pt}}}
 
+%-------------- Liste des figures --------------------------------------
+\renewcommand{\cftafterloftitle}{%
+{\color{rougeSombreRemy}\large\sffamily\bfseries~\decofourright}\hfill\vspace{-0.4em}\strut{}\\%
+\lignegrise{}}
+\renewcommand{\cftloftitlefont}{\lignegrise
+\par\noindent\hfill\large\color{rougeSombreRemy}\sffamily\bfseries\decofourleft~}
+\renewcommand{\cftfigdotsep}{\cftnodots}
+\newcommand{\listeFigures}[1][]{\clearpage#1\listoffigures%
+\lignegrise\clearpage}
+
+
+%-------------- Table des matières--------------------------------------
 \renewcommand{\cftaftertoctitle}{%
 {\color{rougeSombreRemy}\large\sffamily\bfseries~\decofourright}\hfill\vspace{-0.4em}\strut{}\\%
 \lignegrise{}}
 \renewcommand{\cfttoctitlefont}{\lignegrise
 \par\noindent\hfill\large\color{rougeSombreRemy}\sffamily\bfseries\decofourleft~}
 
-\addtolength{\cftsecnumwidth}{1em}
+\addtolength{\cftsecnumwidth}{0.3em}
 \setlength{\cftsubsubsecnumwidth}{1.6em}
 \setlength{\cftparanumwidth}{1.6em}
 
@@ -177,6 +190,8 @@
 
 \newcommand{\tableMatieres}{\tableofcontents
 \lignegrise\clearpage}
+
+%--------------- Page titre ----------------------------------------------------
 \newcommand{\pageTitre}{
 \begin{titlepage}
 \begin{tikzpicture}[remember picture,overlay]
@@ -214,6 +229,9 @@
   \strut{}\vspace{2cm}\hfill\begin{minipage}[t]{0.75\linewidth}
 	\flushleft
 	\color{grisSombre}
+	{
+	\large	PLDSI}\vspace{8\lineskip}\par
+
 	{\parbox{\linewidth}{\bfseries\Huge \makeatletter\@title\makeatother}\vspace{12\lineskip}}
 
   \strut{}\hfill{\color{rougeSombreRemy}\Large Heptanome
@@ -258,40 +276,40 @@
 \rowcolors{2}{grisTresClair}{}
 
 %---------------------------------------------------------------Images
-\newcommand{\strechedFigure}[2]{
-\begin{figure}[H]
+\newcommand{\strechedFigure}[3][H]{
+\begin{figure}[#1]
 	\centering
-	\includegraphics[width=\linewidth]{#1}
-	\caption{#2}
+	\includegraphics[width=\linewidth]{#2}
+	\caption{#3}
 	\end{figure}
 }
 
-\newcommand{\strechedHeightFigure}[2]{
-\begin{figure}[H]
+\newcommand{\strechedHeightFigure}[3][H]{
+\begin{figure}[#1]
 	\centering
-	\includegraphics[height=.97\textheight]{#1}
-	\caption{#2}
+	\includegraphics[height=.95\textheight]{#2}
+	\caption{#3}
 	\end{figure}
 }
 
-\newcommand{\unscaledFigure}[2]{
-\begin{figure}[H]
+\newcommand{\unscaledFigure}[3][H]{
+\begin{figure}[#1]
 	\centering
-	\includegraphics{#1}
-	\caption{#2}
+	\includegraphics{#2}
+	\caption{#3}
 	\end{figure}
 }
 
-\newcommand{\fixedWidthFigure}[3]{
-\begin{figure}[H]
+\newcommand{\fixedWidthFigure}[4][H]{
+\begin{figure}[#1]
 	\centering
-	\includegraphics[width=#3]{#1}
-	\caption{#2}
+	\includegraphics[width=#4]{#2}
+	\caption{#3}
 	\end{figure}
 }
                                  
 %----------------------------------------------En têtes etc
-\pagestyle{fancy}
+\fancypagestyle{plain}{%
 \lhead{\small\color{grisSombre}H4404}
 \chead{}
 \rhead{\small\color{grisSombre}\makeatletter\@title\makeatother}
@@ -306,8 +324,9 @@
 \renewcommand{\footrulewidth}{1.6pt}
 \renewcommand{\footrule}{\hbox to\headwidth{%
   \color{rougePetantRemy}\leaders\hrule height \footrulewidth\hfill}}
+}
 
-\color{grisSombre}
+\pagestyle{plain}
 
 \makeatletter
 \renewcommand{\p@subsubsection}{\Roman{section}.\Alph{subsection}.\arabic{subsubsection}\expandafter\@gobble}
